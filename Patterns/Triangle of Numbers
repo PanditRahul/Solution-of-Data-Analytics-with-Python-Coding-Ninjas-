@@ -1,0 +1,82 @@
+
+Send Feedback
+Print the following pattern for the given number of rows.
+Pattern for N = 4
+
+
+
+The dots represent spaces.
+
+
+
+Input format :
+Integer N (Total no. of rows)
+Output format :
+Pattern in N lines
+Constraints :
+0 <= N <= 50
+Sample Input 1:
+5
+Sample Output 1:
+           1
+         232
+       34543
+     4567654
+   567898765
+Sample Input 2:
+4
+Sample Output 2:
+           1
+         232
+       34543
+     4567654
+     
+     
+     Solutions
+     
+     
+     
+     from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+n = int(input())
+i = 1
+while i <= n:
+    spaces = 1
+    while spaces <= n-i:
+        print(" ", end="")
+        spaces = spaces+1
+    j = 1
+    while j <= i:
+        print(i+j-1, end="")
+        j = j+1
+    p = i-1
+    while p >= 1:
+        print(i+p-1, end="")
+        p = p-1
+    print()
+    i = i+1
