@@ -1,0 +1,29 @@
+
+
+Problem Statement:
+Given three numbers A, B and C, find the largest among the three and print it.
+Input
+Three integers are provided separated by lines.
+Sample Input
+4
+5
+3
+Sample Output
+5
+
+
+
+Solution:
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+A = int(input())
+B = int(input())
+C = int(input())
+
+if A>=B and A>=C:
+    print(A)
+elif B >=C and B>=A:
+    print(B)
+else:
+    print(C)
