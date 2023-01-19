@@ -1,0 +1,22 @@
+Print Multiples of 3 or 7
+Send Feedback
+Given a positive integer n, find the count of all multiples of 3 or 7 which are less than or equal to n.
+Sample Input
+10
+Sample Output
+4
+Explanation
+The multiples are 3, 6, 7 and 9, where 3, 6 and 9 are multiples of 3 and 7 is a multiple of 7.
+
+
+Solution
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+n = int(input())
+res = 0
+for i in range(1, n + 1):
+    if i % 3 == 0 or i % 7 == 0:
+        res += 1
+print(res)
