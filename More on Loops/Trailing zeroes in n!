@@ -1,0 +1,22 @@
+
+Send Feedback
+Find and return number of trailing 0s in n factorial without calculating n factorial.
+Sample Input
+50
+Sample Output
+12
+Input Size Limit
+n < 10^11
+
+
+Solution
+
+
+def trailingZero2(n):
+    result = 0
+    power = 5
+    while(n>=power):
+        result += n//power
+        power *=5
+    return result
+print(trailingZero2(int(input())))
