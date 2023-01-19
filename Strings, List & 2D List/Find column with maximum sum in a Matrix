@@ -1,0 +1,49 @@
+
+Send Feedback
+Given an N*N matrix. The task is to find the index of the column with the maximum sum. That is the column whose sum of elements is maximum.
+Input Format
+N
+N*N matrix in comma separated form for each row.
+Input :
+
+    5
+    1, 2, 3, 4, 5
+    5, 3, 1, 4, 2
+    5, 6, 7, 8, 9
+    0, 6, 3, 4, 12
+    9, 7, 12, 4, 3
+Output: Column 5 has the max sum of 31.
+
+Input :
+
+    3
+    1, 2, 3
+    4, 2, 1
+    5, 6, 7
+Output: Column 3 has the max sum of 11.
+
+
+Solution
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+
+N = int(input())
+rows = N
+columns = N
+
+matrix = []
+
+for _ in range(rows):
+    row = list(map(int, input().split(',')))
+    matrix.append(row)
+
+max_sum = float('-inf')
+
+for i in range(columns):
+    row_sum = 0
+    for j in range(rows):
+        row_sum+= matrix[j][i]
+
+    max_sum = max(row_sum, max_sum)
+print(max_sum)
