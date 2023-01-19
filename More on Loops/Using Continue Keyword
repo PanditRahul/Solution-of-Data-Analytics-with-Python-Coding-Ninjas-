@@ -1,0 +1,26 @@
+Send Feedback
+Write a python script such that it prints all the numbers from 1 to n both included. But does not print multiples of 5.
+Examples:
+Input
+5
+The expected output is
+Output
+1
+2
+3
+4
+
+
+
+
+Solution
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+n = int(input())
+
+for i in range(1, n+1):
+    if i % 5 == 0:
+        continue
+    
+    print(i)
