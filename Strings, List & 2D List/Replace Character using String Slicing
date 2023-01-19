@@ -1,0 +1,28 @@
+
+Send Feedback
+Given a string, replace every occurrence of 'a' with 'b' in that string and print the replaced string.
+Input: "I am super man."
+Output: "I bm super mbn."
+
+Input: "dance is an Art."
+Output: "dbnce is bn Art."
+
+
+
+
+Solution
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+
+input_string = input()
+to_replace = 'a'
+replace_with = 'b'
+
+
+for index, input_char in enumerate(input_string):
+    if input_char == to_replace:
+        input_string = input_string[ :index] + replace_with + input_string[index + 1:]
+
+print(input_string)
