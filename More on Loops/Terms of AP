@@ -1,0 +1,43 @@
+
+Send Feedback
+Write a program to print first x terms of the series 3N + 2 which are not multiples of 4.
+Input format :
+Integer x
+Output format :
+Terms of series (separated by space)
+Constraints :## Read input as specified in the question.
+## Print output as specified in the question.
+n = int(input())
+
+count = 1
+current = 1
+
+while(count <= n):
+    num = 3 * current + 2
+
+    if num % 4 != 0:
+        print(num, end=" ")
+        count += 1
+
+    current +=1
+1 <= x <= 1,000
+
+
+Solution
+
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+n = int(input())
+
+count = 1
+current = 1
+
+while(count <= n):
+    num = 3 * current + 2
+
+    if num % 4 != 0:
+        print(num, end=" ")
+        count += 1
+
+    current +=1
