@@ -1,0 +1,92 @@
+
+Send Feedback
+Print the following pattern for the given number of rows.
+Note: N is always odd.
+
+
+Pattern for N = 5
+
+
+
+The dots represent spaces.
+
+
+
+Input format :
+N (Total no. of rows and can only be odd)
+Output format :
+Pattern in N lines
+Constraints :
+1 <= N <= 49
+Sample Input 1:
+5
+Sample Output 1:
+  *
+ ***
+*****
+ ***
+  *
+Sample Input 2:
+3
+Sample Output 2:
+  *
+ ***
+  *
+  
+  Solution
+  
+  
+  from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+n = int(input())
+i = 1
+n1 = (n+1)//2
+while i <= n1:
+    spaces = 1
+    while spaces <= n1-i:
+        print(" ", end="")
+        spaces = spaces+1
+    j = 1
+    while j <= 2*i-1:
+        print("*", end="")
+        j = j+1
+    print('')
+    i = i+1
+n2 = n1-1
+i = n2
+while i >= 1:
+    spaces = 1
+    while spaces <= n1-i:
+        print(" ", end="")
+        spaces = spaces+1
+    j = 1
+    while j <= 2*i-1:
+        print("*", end="")
+        j = j+1
+    print('')
+    i = i-1
