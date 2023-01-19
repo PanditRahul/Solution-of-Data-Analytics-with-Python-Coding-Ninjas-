@@ -1,0 +1,21 @@
+
+
+Write a python script to find out if the given number is even or odd.
+Input
+A single line of input will be provided which contains a number.
+Expected Output
+For the even number, the output should print "Even" and for the odd number, print "Odd".
+
+
+
+
+Solution:
+# Read input as sepcified in the question
+# Print output as specified in the question
+#include <stdio.h>
+num = int(input())
+
+if num % 2 ==0:
+    print("Even")
+else:
+    print("Odd")
