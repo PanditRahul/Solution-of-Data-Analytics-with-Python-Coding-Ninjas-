@@ -1,0 +1,24 @@
+
+
+Write a python script to check if the number entered by the user is divisible by both 3 and 5.
+Note
+The Modulo operator can be used to find the divisibility of two numbers.
+Input
+A single line of input will be provided which contains an integer.
+Expected Output
+Print "Yes" if the given number is divisible by both 3 and 5, otherwise print "No".
+
+
+
+Solution:
+
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+userInput = int(input())
+
+if userInput % 5 == 0 and userInput % 3 ==0:
+    print("Yes")
+else:
+    print("No")
