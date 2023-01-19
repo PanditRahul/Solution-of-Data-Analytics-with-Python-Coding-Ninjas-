@@ -1,0 +1,22 @@
+
+
+Write a python script to check if the input entered by the user is a positive integer or not.
+Note
+0 is considered a positive integer.
+Input
+A single line of input will be provided which contains a number.
+Expected Output
+Print “Positive.” if the input is a positive integer.
+Otherwise, print “Negative”.
+
+
+Solution:
+
+
+N = int(input())
+
+if N >=0:
+    print("Positive")
+else:
+    print("Negative")
+
