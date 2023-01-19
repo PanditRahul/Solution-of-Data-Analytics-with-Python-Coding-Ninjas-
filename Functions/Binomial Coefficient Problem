@@ -1,0 +1,32 @@
+Binomial Coefficient Problem
+Send Feedback
+A Ninja was learning how to calculate the binomial coefficient. But, learning that alone won’t help the ninja since a lot of problems are required to be solved as homework. Since the ninja is old-fashioned and doesn’t know that a computer can do the same homework in a matter of a few seconds you will have to help with the problems.
+You need to complete a function for the ninja that can calculate the binomial of a number where when given two integers 'N' and 'R', the program can calculate its respective binomial coefficient nCr. Since the answer may be very large, calculate the answer modulo 10^9 + 7.
+For Example:
+Input: 'N' = 5, 'R' = 2
+Output: 10
+
+The value of 5C2 is 10
+Input Format
+N R space separated in one line
+Output Format
+nCr value
+
+
+Solution
+
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+from math import factorial as fact
+
+def binomial(a,b):
+    return fact(a) // fact(b) // fact(a-b)
+
+a, b = list(map(int, input().split()))
+print(binomial(a, b))
