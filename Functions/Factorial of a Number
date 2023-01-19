@@ -1,0 +1,25 @@
+Factorial of a Number
+Send Feedback
+You are given an integer ‘N’. You have to print the value of Factorial of ‘N’. The Factorial of a number ‘N’ is defined as the product of all numbers from 1 to ‘N’.
+For Example:
+Consider if ‘N’ = 4, the Factorial of 4 will be the product of all numbers from 1 to 4, which is 1 * 2 * 3 * 4 = 24. Hence, the answer is 24.
+Input Format:
+The test case contains one single integer ‘N’ representing the given integer.
+Output Format:
+Print the value of the factorial of ‘N’.
+
+
+Solution
+
+
+## Read input as specified in the question.
+## Print output as specified in the question.
+def factorial(x):
+
+    if x == 1:
+        return 1
+    else:
+        return(x * factorial(x-1))
+
+num = int(input())
+print(factorial(num))
