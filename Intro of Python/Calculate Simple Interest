@@ -1,0 +1,26 @@
+
+Now, our task is to take input from the user and perform some operations on them.
+We need to find simple interest. For this, we need to take input from the user:
+P, the principal amount
+T, the time and
+R, the rate
+The formula for Simple Interest = (P x T x R)/100
+Hint: We need to convert the input into integer form using the int() function.
+Note: Output should also be in the integer format.
+
+
+
+
+
+ Solution :
+ 
+ 
+ 
+ 
+ # Read input as sepcified in the question
+# Print output as specified in the question
+P = int(input())
+R = int(input())
+T = int(input())
+simpleInterest = (P*T*R)/100
+print(int(simpleInterest))
