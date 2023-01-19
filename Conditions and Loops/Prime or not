@@ -1,0 +1,26 @@
+
+
+Problem Statement
+Given any Integer, check whether it is Prime or Not.
+Note:-
+To avoid TLE(Time limit exceeded) error for the larger test cases, use a break statement.
+Expected Output
+Print "Prime" if the input number is prime, else print "Not Prime"
+
+
+Solutions
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+n=int(input())
+d=2
+flag=False
+while d<n:
+    if n%d==0:
+        flag=True
+    d=d+1
+if flag:
+    print("Not Prime")
+else:
+    print("Prime")
