@@ -1,0 +1,33 @@
+
+Send Feedback
+Write a python script that will take integer input from the user. And when the user gives 0 as input, it does not take any further input and prints the sum of all the previous inputs.
+Examples:
+Input
+4
+5
+2
+3
+7
+0
+4
+5
+Here, input is line separated and each line contains one value.
+Output
+21
+
+
+Solution
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+sum = 0
+while True:
+    x = int(input())
+
+    if x == 0:
+        break
+
+    sum += x
+
+print(sum)
