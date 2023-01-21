@@ -45,7 +45,7 @@ def maxPathSum(ar1, ar2):
             suma += ar1[i]
             i += 1
         else:
-            sumb + ar2[j]
+            sumb += ar2[j]
             j += 1
     while (i<m):
         suma += ar1[i]
