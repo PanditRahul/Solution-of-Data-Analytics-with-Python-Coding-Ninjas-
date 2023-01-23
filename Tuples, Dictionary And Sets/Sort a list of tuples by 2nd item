@@ -1,0 +1,31 @@
+
+
+Given a list of tuples, write a Python program to sort the tuples by the second item of each tuple.
+Given:
+4
+a 23
+b 37
+c 11
+d 29
+The first line of input is the number of tuples in the list. All other lines are tuples having the first element as a string and the second element as an integer.
+
+Expected output:
+[('c', 11), ('a', 23), ('d', 29), ('b', 37)]
+
+
+
+Solution
+
+
+
+# Read input as sepcified in the question
+# Print output as specified in the question
+tuple = [('c', 11), ('a', 23), ('d', 29), ('b', 37)]
+Len = len(tuple)
+for i in range(0, Len):
+    for j in range(0, (Len - i - 1)):
+        if(tuple[j][1] > tuple[j+1][1]):
+            temp = tuple[j]
+            tuple[j] = tuple[j+1]
+            tuple[j+1] = temp
+print(str(tuple))
