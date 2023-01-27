@@ -1,1 +1,304 @@
 
+### 1. Practice Problem on Text File
+###### Problem-1: Print 100 Bytes
+Problem Statement :  
+Given file "Sample.txt"  
+Open the file  
+Read the first 100 bytes of file and print them.
+file_obj = open('Sample.txt','r')
+print(file_obj.read(100))
+file_obj.close()
+###### Problem-2: Print 5 lines
+Problem Statement :  
+Given file "Sample.txt"  
+Open the file  
+Read the first 5 lines from file and print them (in separate lines).
+file_obj = open('Sample.txt','r')
+for i in range(5) :
+    print(file_obj.readline())
+file_obj.close()
+###### Problem-3: Print 5 Lines (Readlines)
+Problem Statement :  
+Given file "Sample.txt"  
+Open the file  
+Read the first 5 lines from file and print them.
+with open('Sample.txt','r') as file_obj :
+    file_data = file_obj.readlines()
+    for i in range(5) :
+        print(file_data[i])
+
+
+
+### 2. Practice Problem on CSV File
+Given file "year2017.csv" 
+It is an open-source database including information on terrorist attacks around the world from 1970 through 2017. This dataset   includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+###### Problem-1: First 3 lines
+Problem Statement :  
+Open and read the file  
+Print the first 3 rows of the file, excluding header (in different lines)  
+Print columns of one row, separated by space
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj)
+    csv_list = list(csv_data)
+    for i in range(1,4) :
+        print(*csv_list[i])
+###### Problem-2: Print all column names
+Problem Statement :   
+Open and read the file  
+Print the name of columns (in different lines)
+
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj)
+    csv_list = list(csv_data)
+    for i in csv_list[0] :
+        print(i)
+###### Problem-3: Country Names
+Problem Statement :  
+Open and read the file  
+Print the country names from first 10 rows (in different lines)
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj)
+    csv_list = list(csv_data)
+    for i in range(1,11) :
+        print(csv_list[i][3])
+###### Problem-4 : Total Wounded People
+Problem Statement :  
+Find and print the total number of wounded people.  
+Print the count as integer value.  
+Note : There can be missing values in "Wounded" column. You should try to print the values of "Wounded" column and observe.  
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj, skipinitialspace=True)
+    csv_list = list(csv_data)
+    wounded = []
+    for row in csv_list[1:] :
+        if row[10] != '' :
+            wounded.append(float(row[10]))
+    print(int(sum(wounded)))
+            
+###### Problem-5 : Total Wounded from India
+Problem Statement :  
+Find and print the total number of wounded people who are from country "India".  
+Print the count as integer value.  
+Note : There can be missing values in "Wounded" column. You should try to print the values of "Wounded" column and observe.
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj, skipinitialspace = True)
+    csv_list = list(csv_data)
+    wounded = []
+    for row in csv_list[1:] :
+        if row[3] == 'India' and row[10] != '' :
+            wounded.append(float(row[10]))
+    print(int(sum(wounded)))
+            
+###### Problem-6 : Casualties from Explosives
+Problem Statement :  
+Find and print total number of casualties with “Explosives” Weapon_type.  
+Print the count as integer value.  
+Note : There can be missing values in "casualties" column and there are some initial spaces present in every value. You should try to print the values and observe.
+import csv
+with open('year2017.csv', 'r') as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    casualties = []
+    for row in csv_data :
+        if row['Weapon_type'] == 'Explosives' and row['casualities'] != '' :
+            casualties.append(float(row['casualities']))
+    print(int(sum(casualties)))
+###### Problem-7 : Month vs Killed
+Problem Statement :  
+Find the total number people killed in each month.  
+Print the month and count of killed people as integer  
+import csv
+with open('year2017.csv', 'r') as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    dct = {}
+    for row in csv_data :
+        key = row['Month']
+        value = row['Killed']
+        if value != '' :
+            value = int(float(value))
+        else :
+            value = 0
+        if key in dct :
+            dct[key] += value
+        else :
+            dct[key] = value
+    for i in dct :
+        print(i,dct[i])
+    
+###### Problem-8 : Country vs Casualties
+Problem Statement :  
+Find total number of casualties in each country.  
+Print number of casualties as integer value.   
+Note : For any missing value of casualty column, take 0 as value  
+import csv
+with open('year2017.csv', 'r') as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    dct = {}
+    for row in csv_data :
+        key = row['Country']
+        value = row['casualities']
+        if value != '' :
+            value = int(float(value))
+        else :
+            value = 0
+        if key in dct :
+            dct[key] += value
+        else :
+            dct[key] = value
+    for i in dct :
+        print(i,dct[i])
+    
+
+
+
+## Assignment
+Given File 'amazonjobsdataset.csv'  
+It is a dataset including information on amazon job opening around the world from June 2011 to March 2018. This dataset is collected using Selenium and BeautifulSoup by scraping all of the jobs for Amazon job site.
+###### Problem-1 : Job Location
+Problem Statement :  
+Find number of job openings in Bangalore,IN and in Seattle,US?  
+Print the Number of Job opening in Bangalore and Seattle as Integer value.
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+
+    opening_bangalore = 0
+    opening_seattle = 0
+    for row in csv_data:
+        if 'Bangalore' in row['location'] :
+            opening_bangalore += 1
+        if 'Seattle' in row['location'] :
+            opening_seattle += 1
+    print(opening_bangalore,opening_seattle)
+###### Problem-2 : Job Computer Vision
+Problem Statement :  
+What are the total number of job openings related to Computer Vision ?  
+Note:For finding the job related to computer vision check the Job Title column.  
+Print the count as the Integer Value
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    job=0
+    for row in csv_data:
+        if 'Computer Vision' in row['Title'] :
+            job += 1
+    print(job)
+###### Problem-3 : Job Canada
+Problem Statement :  
+Find the number of job openings in Canada?  
+Print the count as the Integer Value  
+Note: Here you should analyse the country code in location feature.
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    job=0
+    for row in csv_data:
+         if row['location'].startswith("CA") :
+            job += 1
+    print(job)
+###### Problem-4 : Job Month 2018
+Problem Statement :  
+Find the month having most job openings in Year 2018 ?  
+Print the month (Month Name i.e January, February, March) and Number of job opening as Integer Value
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    d = {}
+    for row in csv_data :
+        date = row['Posting_date'].split(',')
+        if date[1].strip() == '2018' :
+            month = date[0].split()[0]
+            if month in d :
+                d[month] += 1
+            else:
+                d[month] = 1
+ 
+    count = -1
+    month_name = ''
+    for month in d :
+        if d[month] > count :
+            count = d[month]
+            month_name = month
+    print(month_name,count)
+            
+###### Problem-5 : Job Degree
+Problem Statement :  
+Find the number of job openings are present if applicant have Bachelor degree?  
+Print the count as Integer value  
+Note : Here we will use the BASIC QUALIFICATIONS feature to find out whether bachelor degree for Job is required or not. Keywords that can be used are 'Bachelor', 'BS' and 'BA'.
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    count = 0
+    for row in csv_data :
+        if 'Bachelor' in row['BASIC QUALIFICATIONS'] or 'BA' in row['BASIC QUALIFICATIONS'] or 'BS' in row['BASIC QUALIFICATIONS'] : 
+            count += 1
+  
+    print(count)
+###### Problem-6 : Job Language
+Problem Statement :  
+Among Java, C++ and Python, which of the language has more job openings in India for Bachelor Degree Holder?  
+Print the Language(i.e Java,C++,Python) and number of job opening as integer value.  
+Note : Here we will use the BASIC QUALIFICATIONS feature to find out whether bachelor degree for Job is required or not. Keywords that can be used are 'Bachelor', 'BS' and 'BA' and we will use the BASIC QUALIFICATIONS feature to find out whether Language is required for the job or not.Keywords that is used for language searching are 'Java','C++' or 'Python'.(There case should not be changed).
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    python = 0
+    java = 0
+    c = 0
+    for row in csv_data:
+        country = row['location'].split(',')[0]
+        if country == 'IN' :
+                bachelor = row['BASIC QUALIFICATIONS']
+                if ('Bachelor' in bachelor) or ('BA' in bachelor) or ('BS' in bachelor) : 
+                    if 'Python' in bachelor :
+                        python += 1
+                    if 'C++' in bachelor :
+                        c += 1
+                    if 'Java' in bachelor :
+                        java += 1
+                
+  
+    if python > java and python > c :
+        print('Python',python)
+    elif java > python and java > c :
+        print('Java',java)
+    else:
+        print('C++',c)
+###### Problem-7 : Job Java
+Problem Statement :  
+Find the country does Amazon need the most number of Java Developer?  
+Print the Country(Country Shortcut as given in Dataset) and number of job opening as integer value  
+Note :Here we will use the BASIC QUALIFICATIONS feature to find out whether Java is required for the job or not.Keyword is used is 'Java'.(Here case should not be changed).
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    d={}
+    for row in csv_data:
+        qulification = row['BASIC QUALIFICATIONS']
+        if 'Java' in qulification :
+            country = row['location'].split(',')[0]
+            if country in d :
+                d[country] += 1
+            else:
+                d[country] = 1
+                
+    max1 = -1
+    country_name = ''
+    for country in d:
+        if d[country] > max1:
+            max1 = d[country]
+            country_name = country
+    print(country_name,max1)
