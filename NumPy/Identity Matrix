@@ -1,0 +1,17 @@
+
+Problem Statement:
+Create a matrix having diagonal elements as 1 and all other elements as 0 of size (5, 6).
+Print the Numpy array.
+Output Format :
+numpyArray
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.eye(5,6,dtype=int)
+print(arr)
