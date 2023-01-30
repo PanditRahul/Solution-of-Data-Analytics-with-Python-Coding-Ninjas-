@@ -1,0 +1,18 @@
+
+
+Problem Statement:
+Create an array with values ranging consecutively from 9 to 49 (both inclusive).
+Print the Numpy array.
+Output Format :
+element1 element2 element3 ...
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.arange(9, 50)
+print(*arr)
