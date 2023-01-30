@@ -1,0 +1,18 @@
+
+
+Problem Statement:
+Create an integer array of size 10, where all the values should be 0 but the fifth value should be 1.
+Print the elements of array.
+Output Format :
+element1 element2 element3 ... 
+
+
+solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.zeros(10, dtype=int)
+arr[4]=1
+print(*arr)
