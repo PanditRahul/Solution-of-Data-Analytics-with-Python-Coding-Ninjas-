@@ -1,0 +1,22 @@
+k
+Problem Statement:
+You are given a rope of length 5m. Cut the rope into 9 parts such that each part is of equal length.
+Note:Array elements are the points where cut is to be made and round upto 2 decimal place.
+Print the array element.
+Output Format :
+element1 
+element2 
+element3
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.linspace(0,5,10)
+#print(*arr)
+for i in range(1, len(arr)-1) :
+    print(round(arr[i],2))
