@@ -1,0 +1,17 @@
+Problem Statemnt:
+Find indices of non-zero elements from the array [1,2,0,0,4,0] ?
+Print the index of non-zero elements.
+Output Format :
+index1 index2 index3 ... 
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.array([1,2,0,0,4,0])
+ind = np.where(arr != 0)
+print(*ind[0])
