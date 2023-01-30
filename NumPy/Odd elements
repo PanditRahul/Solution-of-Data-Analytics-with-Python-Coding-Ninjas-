@@ -1,0 +1,18 @@
+
+Problem Statemnt:
+Given an integer array of size 10. Replace the odd number in numpy array with -1 ?
+Note: Generate the following array
+array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+Print the Numpy array.
+Output Format :
+firstElement secondElement  ... 
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+arr = np.arange(1,11)
+arr[arr % 2 != 0] = -1
+print(*arr)
