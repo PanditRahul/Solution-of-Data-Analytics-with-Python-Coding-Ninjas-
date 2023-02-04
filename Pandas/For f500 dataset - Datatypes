@@ -1,0 +1,18 @@
+
+
+We have been given a dataset of Fortune magazine's Global 500 list 2017, which ranks the top 500 corporations worldwide by revenue. The dataset is a CSV file called "f500.csv".
+Our task is to read the csv file using pandas and print the data type of each column.
+Output Format
+column_name                      object_type
+column_name                      object_type
+column_name                      object_type
+...
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+f500 = pd.read_csv('f500.csv')
+print(f500.dtypes)
