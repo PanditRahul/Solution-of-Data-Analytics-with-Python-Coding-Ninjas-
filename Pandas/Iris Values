@@ -1,0 +1,39 @@
+
+Problem Statement
+Find and print the minimum, maximum and average value of the feature for each kind of flower ?
+Note: Get the dataset from here
+Print the value with two decimal places.
+Note: Order for flower is Iris-setosa, Iris-versicolor and Iris-virginica.
+Output Format
+minSL minSW minPL minPW Iris-setosa
+maxSL maxSW maxPL maxPW Iris-setosa
+avgSL avgSW avgPL avgPW Iris-setosa
+. . .
+. . .
+. . .
+
+
+Solution
+
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+columns = ['sl','sw','pl','pw','flower_type']
+iris = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', names=columns)
+
+c = iris[iris.flower_type=='Iris-setosa']
+print('%.2f'%min(c['sl']),'%.2f'%min(c['sw']),'%.2f'%min(c['pl']),'%.2f'%min(c['pw']),c.iloc[0,4])
+print('%.2f'%max(c['sl']),'%.2f'%max(c['sw']),'%.2f'%max(c['pl']),'%.2f'%max(c['pw']),c.iloc[0,4])
+print('%.2f'%(c['sl'].mean()),'%.2f'%(c['sw'].mean()),'%.2f'%(c['pl'].mean()),'%.2f'%(c['pw'].mean()),c.iloc[0,4])
+
+c1 = iris[iris.flower_type=='Iris-versicolor']
+print('%.2f'%min(c1['sl']),'%.2f'%min(c1['sw']),'%.2f'%min(c1['pl']),'%.2f'%min(c1['pw']),c1.iloc[0,4])
+print('%.2f'%max(c1['sl']),'%.2f'%max(c1['sw']),'%.2f'%max(c1['pl']),'%.2f'%max(c1['pw']),c1.iloc[0,4])
+print('%.2f'%(c1['sl'].mean()),'%.2f'%(c1['sw'].mean()),'%.2f'%(c1['pl'].mean()),'%.2f'%(c1['pw'].mean()),c1.iloc[0,4])
+
+c2 = iris[iris.flower_type=='Iris-virginica']
+print('%.2f'%min(c2['sl']),'%.2f'%min(c2['sw']),'%.2f'%min(c2['pl']),'%.2f'%min(c2['pw']),c2.iloc[0,4])
+print('%.2f'%max(c2['sl']),'%.2f'%max(c2['sw']),'%.2f'%max(c2['pl']),'%.2f'%max(c2['pw']),c2.iloc[0,4])
+print('%.2f'%(c2['sl'].mean()),'%.2f'%(c2['sw'].mean()),'%.2f'%(c2['pl'].mean()),'%.2f'%(c2['pw'].mean()),c2.iloc[0,4])
