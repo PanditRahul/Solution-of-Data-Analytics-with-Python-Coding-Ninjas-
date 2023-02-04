@@ -1,0 +1,19 @@
+
+We'll be working with data set from Fortune magazine's Global 500 list 2017, which ranks the top 500 corporations worldwide by revenue. The dataset is a CSV file called f500.csv.
+Now you need to do two things on this dataset:
+1. Read the dataset using pandas
+Note: To import the dataset, the file name is "f500.csv"
+2. Print the shape of the dataset
+
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given
+import pandas as pd
+f500 = pd.read_csv('f500.csv')
+print(f500.shape)
+
