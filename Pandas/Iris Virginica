@@ -1,0 +1,29 @@
+
+Problem Statement
+Find the data of flower “Iris-virginica” type where petal-length > 1.5?
+Note: Get the dataset from here
+Print the all the feature values.
+Output Format
+feature1 feature2 feature3 feature4 feature5
+feature1 feature2 feature3 feature4 feature5
+feature1 feature2 feature3 feature4 feature5
+feature1 feature2 feature3 feature4 feature5
+. . .
+. . .
+. . .
+
+
+Solution
+
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+columns = ['sl','sw','pl','pw','flower_type']
+iris = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', names=columns)
+iris = iris[iris.flower_type=='Iris-virginica']
+iris = iris[iris.pl>1.5]
+iris = iris.values
+for row in iris :
+    print(*row)
