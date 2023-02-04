@@ -1,0 +1,18 @@
+
+
+Using the "f500.csv" dataset, Print the top 5 countries having the most companies in this list.
+Output Format
+USA        <number of companies>
+China      <number of companies>
+...
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+f500 = pd.read_csv('f500.csv')
+top5_countries = f500["country"].value_counts().head()
+print(top5_countries)
