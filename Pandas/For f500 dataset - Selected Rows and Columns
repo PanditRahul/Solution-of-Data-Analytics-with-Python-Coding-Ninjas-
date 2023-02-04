@@ -1,0 +1,18 @@
+
+
+Using the "f500.csv" dataset, print the first 5 rows and first 3 columns of this dataset using pandas.
+Output Format
+                    company  rank  revenues
+0                   Walmart     1    485873
+1                State Grid     2    315199
+....
+
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+f500 = pd.read_csv('f500.csv')
+print(f500.iloc [:5, :3])
