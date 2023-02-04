@@ -1,0 +1,20 @@
+
+Send Feedback
+Problem Statement
+Find and print count of each kind of flower (separated by space)?
+Note: Get the dataset from here
+Print the count as Integer Value.
+Output Format
+count1 count2 count3 .....
+
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+columns = ["sepal.length","sepal.width","petal.length","petal.width","variety"]
+iris = pd.read_csv('https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv')
+count = iris['variety'].value_counts() 
+print(count[0],count[1],count[2])
