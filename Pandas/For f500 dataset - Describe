@@ -1,0 +1,17 @@
+
+Using the "f500.csv" dataset, describe the "profits" column on various parameters using the describe method.
+Output Format
+count      499.000000
+mean      3055.203206
+std       5171.981071
+...
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+f500 = pd.read_csv('f500.csv')
+profits = f500["profits"]
+print(profits.describe())
