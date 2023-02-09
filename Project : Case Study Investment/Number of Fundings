@@ -1,0 +1,46 @@
+
+
+Given File 'startup_funding.csv'
+Problem Statement :
+Check the trend of investments over the years. To check the trend, find -
+Total number of fundings done in each year.
+Plot a line graph between year and number of fundings. Take year on x-axis and number of fundings on y-axis.
+Print year-wise total number of fundings also. Print years in ascending order.
+Note :
+There is some error in the 'Date' feature. Make sure to handle that.
+Output Format :
+year1 TotalFunding1
+year2 TotalFunding2
+. . . 
+
+
+
+Solution
+
+# Open and read data file as specified in the question
+# Print the required output in given format
+import csv
+import matplotlib.pyplot as plt
+
+import collections
+with open('startup_funding.csv', encoding ='UTF-8') as file_obj:
+    file_data = csv.DictReader(file_obj, skipinitialspace=True)
+
+    dct = {}
+    for row in file_data:
+        year = row['Date'][-4:]
+        if year in dct:
+            dct[year] += 1
+        else:
+            dct[year] = 1
+            
+    ord_dct = collections.OrderedDict(sorted(dct.items()))                                  
+    plt.plot(list(ord_dct.keys()),list(ord_dct.values()))
+    plt.xlabel("Year")
+    plt.ylabel("Number of Fundings")
+    plt.title('Year VS "Number of Fundings"')
+    plt.show()
+    
+    for i in ord_dct.keys():
+        print(i,end=" ")
+        print(ord_dct[i])
