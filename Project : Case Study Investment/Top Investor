@@ -1,0 +1,38 @@
+
+Given File 'startup_funding.csv'
+Problem Statement :
+Find the Investors who have invested maximum number of times.
+Print the investor name and number of times invested as integer value.
+Note:
+In startup, multiple investors might have invested. So consider each investor for that startup.
+Ignore the undisclosed investors.
+Output Format :
+investorname number
+
+
+
+Solution
+
+
+# Open and read data file as specified in the question
+# Print the required output in given format
+
+        
+import pandas as pd
+df = pd.read_csv("startup_funding.csv")
+df['InvestorsName'].dropna(inplace=True)
+def createdictionary(array):
+    d = {}
+    for i in array:
+        if ',' not in i:
+            d[i] = d.get(i,0) + 1
+        else:
+            string = i.strip().split(',')
+            for j in string:
+                d[j.strip()] = d.get(j.strip(),0) + 1
+    return d
+
+dict = createdictionary(df['InvestorsName'])
+new_df = pd.DataFrame(list(dict.values()),list(dict.keys()))
+new_df = new_df.sort_values(by=[0],ascending = False)
+print(new_df.index[0],new_df.values[0][0])    
