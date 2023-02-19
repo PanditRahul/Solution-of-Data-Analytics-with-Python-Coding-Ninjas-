@@ -1,0 +1,22 @@
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Describe the dataset using the pandas describe API.
+Output Format:
+       release_year
+count   7787.000000
+mean    2013.932580
+...
+
+
+Soltuion
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.read_csv('netflix_dataset.csv')
+print(df.describe())
+
