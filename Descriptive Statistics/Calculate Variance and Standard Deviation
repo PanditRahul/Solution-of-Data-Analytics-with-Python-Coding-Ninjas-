@@ -1,0 +1,21 @@
+
+As the Ace residency society supervisor, you want to impose some set of rules. To impose those rules you need to have a better understanding of the people who are living there. This understanding needs to be in the numbers. We are providing you with the age of the people who are living in the society.
+[24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21]
+In this task, you need to calculate the Variance and Standard Deviation for this dataset.
+The output should be in the form of integer format.
+
+Variance Value
+Standard Deviation Value
+Note: please refer to the notes.(use NumPy library)
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import statistics 
+arr = [24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21] 
+print(int(statistics.variance(arr))) 
+print(int((statistics.stdev(arr))))
+
