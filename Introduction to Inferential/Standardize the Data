@@ -1,0 +1,36 @@
+
+
+You are given an approximately normally distributed dataset.
+data = [567.45,572.45,572.45,589.12,613.87,615.78,628.45,644.87,650.45,652.20,656.87,661.45,666.45,667.70,668.95,675.28,675.78,685.53,694.28,697.62,705.78,705.87,708.12,711.03,714.03,716.03,722.28,728.12,728.70,729.03,730.12,731.95,735.03,736.95,737.37,738.28,739.78,740.62,743.62,747.20,748.20,748.28,748.53,750.03,752.12,754.70,755.03,758.37,760.53,764.03,769.28,775.45,781.20,781.70,785.62,792.78,793.37,795.28,797.62,798.95,799.70,799.95,810.87,811.53,813.62,814.03,814.78,817.87,818.87,820.70,821.12,825.62,828.62,841.45,842.03,842.87,849.62,874.70,878.78,897.45]
+Copy this data and calculate the mean and standard deviation of the dataset.
+Then Standardize the dataset using the formula:
+Xstand = (X - mean(X)) / Standard_Deviation (X)
+Then print the Mean and Standard Deviation of the Standardized dataset.
+Note: Output should be rounded off to 0 decimal places.
+Output Format
+Mean Value of Standardized data
+Standard Deviation Value of Standardized data
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+
+data = [567.45,572.45,572.45,589.12,613.87,615.78,628.45,644.87,650.45,652.20,656.87,661.45,666.45,667.70,668.95,675.28,675.78,685.53,694.28,697.62,705.78,705.87,708.12,711.03,714.03,716.03,722.28,728.12,728.70,729.03,730.12,731.95,735.03,736.95,737.37,738.28,739.78,740.62,743.62,747.20,748.20,748.28,748.53,750.03,752.12,754.70,755.03,758.37,760.53,764.03,769.28,775.45,781.20,781.70,785.62,792.78,793.37,795.28,797.62,798.95,799.70,799.95,810.87,811.53,813.62,814.03,814.78,817.87,818.87,820.70,821.12,825.62,828.62,841.45,842.03,842.87,849.62,874.70,878.78,897.45]
+
+
+mean = np.mean(data)
+std = np.std(data)
+
+
+data_standardized = [(x - mean) / std for x in data]
+
+mean_standardized = np.mean(data_standardized)
+std_standardized = np.std(data_standardized)
+
+print(int(round(mean_standardized)))
+print(int(round(std_standardized)))
+
