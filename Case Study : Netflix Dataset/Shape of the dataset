@@ -1,0 +1,27 @@
+
+
+Given File 'netflix_dataset.csv'
+In this case study, we are going to work on the Netflix movies and TV shows dataset.
+Our first task is to read the dataset and print the shape of the dataset.
+Do the following as first steps to start EDA on this dataset:
+Import NumPy library
+
+Import Pandas library
+
+Import pyplot module from matplotlib library
+
+Read the dataset using pandas
+
+Print the shape of the dataset
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.read_csv('netflix_dataset.csv')
+print(df.shape)
