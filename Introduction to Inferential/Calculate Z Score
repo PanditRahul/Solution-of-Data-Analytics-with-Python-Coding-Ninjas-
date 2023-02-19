@@ -1,0 +1,26 @@
+
+
+You have been given a list
+[6, 7, 7, 12, 13, 13, 15, 16, 19, 22].
+Calculate the z-score for this list. And round off each value to 1 decimal place.
+(Please refer the notes)
+Output Format
+Print the z score values for each element rounded off to 1 decimal place in the form of a list. 
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+data = [6, 7, 7, 12, 13, 13, 15, 16, 19, 22]
+
+# calculate mean and standard deviation
+mean = sum(data) / len(data)
+std_dev = (sum((x - mean)**2 for x in data) / len(data))**0.5
+
+# calculate z-scores
+z_scores = [(x - mean) / std_dev for x in data]
+
+# print z-scores rounded to 1 decimal place
+print([round(x, 1) for x in z_scores])
