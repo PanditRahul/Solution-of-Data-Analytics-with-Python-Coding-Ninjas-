@@ -1,0 +1,29 @@
+
+As the Ace residency society supervisor, you want to impose some set of rules. To impose those rules you need to have a better understanding of the people who are living there. This understanding needs to be in the numbers. We are providing you with the age of the people who are living in the society.
+[24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21]
+In this first task, you need to find the Mean, Median and Mode for this dataset.
+Output Format
+The output should be in the form of integer format.
+
+Mean Value
+Median Value
+Mode Value
+Note: please refer to the notes and statistics library to know how to calculate these.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import statistics
+
+data = [24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21]
+
+mean = statistics.mean(data)
+median = statistics.median(data)
+mode = statistics.mode(data)
+
+print(int(mean))
+print(int(median))
+print(int(mode))
