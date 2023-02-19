@@ -1,0 +1,26 @@
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Print the number of NA values in each column.
+Output Format:
+type               0
+title              0
+director        2389
+cast             718
+...
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv('netflix_dataset.csv')
+
+# Count the number of NA values in each column
+na_counts = df.isna().sum()
+
+# Print the results
+print(na_counts)
