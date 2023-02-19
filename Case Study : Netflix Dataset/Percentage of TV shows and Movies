@@ -1,0 +1,48 @@
+
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Find and print the overall percentage of TV shows and Movies.
+Steps to follow:
+1. Create a pie chart showing the percentage of TV shows and Movies.
+
+2. Print the output in the form of a tuple. (till one decimal point)
+Output Format:
+(<Percentage of Movies>, <Percentage of TV shows>)
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+netflix_df = pd.read_csv('netflix_dataset.csv')
+
+# Count the number of movies and TV shows
+movies_count = len(netflix_df[netflix_df['type'] == 'Movie'])
+tv_shows_count = len(netflix_df[netflix_df['type'] == 'TV Show'])
+
+# Calculate the percentages
+total = movies_count + tv_shows_count
+movies_percent = (movies_count / total) * 100
+tv_shows_percent = (tv_shows_count / total) * 100
+
+# Plot the pie chart
+labels = ['Movies', 'TV Shows']
+sizes = [movies_percent, tv_shows_percent]
+colors = ['lightcoral', 'lightskyblue']
+explode = (0, 0.1)
+plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+        autopct='%1.1f%%', startangle=90)
+plt.axis('equal')
+plt.title('Percentage of Movies and TV Shows')
+plt.show()
+
+# Print the output in the required format
+output = (round(movies_percent, 1), round(tv_shows_percent, 1))
+print(output)
+
