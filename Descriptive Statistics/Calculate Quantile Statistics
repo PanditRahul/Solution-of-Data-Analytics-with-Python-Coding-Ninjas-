@@ -1,0 +1,33 @@
+
+As the Ace residency society supervisor, you want to impose some set of rules. To impose those rules you need to have a better understanding of the people who are living there. This understanding needs to be in the numbers. We are providing you with the age of the people who are living in the society.
+[24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21]
+In this task, you need to find the quantiles [0, 0.25, 0.5, 0.75, 1] of this dataset.
+You need to print 0, 0.25, 0.5, 0.75, 1st quantile.
+Output Format
+The output should be in the form of integer format.
+
+0th quantile value
+25th quantile value
+50th quantile value
+75th quantile value
+100th quantile value
+
+Note: please refer to the notes.(use NumPy library)
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+
+data = [24, 43, 41, 33, 25, 19, 17, 9, 50, 34, 55, 2, 25, 21]
+
+quantiles = np.quantile(data, [0, 0.25, 0.5, 0.75, 1])
+
+print(int(quantiles[0]))  # 0th quantile value
+print(int(quantiles[1]))  # 25th quantile value
+print(int(quantiles[2]))  # 50th quantile value
+print(int(quantiles[3]))  # 75th quantile value
+print(int(quantiles[4]))  # 100th quantile value
