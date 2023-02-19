@@ -1,0 +1,45 @@
+Create Tables
+Send Feedback
+Create 2 tables
+Students
+Columns - 
+RollNumber (integer)
+sName (varchar, max length- 50)
+Address (varchar, max length- 100)
+ContactNumber (varchar, max length- 15)
+RollNumber - Primary Key
+
+Faculties
+Columns - 
+FacultyId (integer)
+fName (varchar, max length- 50)
+class (varchar, max length- 25)
+email (varchar, max length- 100)
+FacultyId - Primary Key
+fName - Not null
+Describe both the tables. Use command:
+DESC Students;
+DESC Faculties;
+Note: SQL is case-sensitive with regard to the text data stored in the tables. Follow the exact alphabetic case while writing the queries.
+
+
+Solution
+
+CREATE TABLE Students (
+    RollNumber INT ,
+    sName VARCHAR(50),
+    Address VARCHAR(100),
+    ContactNumber VARCHAR(15),
+    Primary Key (RollNumber)
+);
+ 
+CREATE TABLE Faculties (
+    FacultyId INT ,
+    fName VARCHAR(50) NOT NULL,
+    class VARCHAR(25),
+    email VARCHAR(100),
+    PRIMARY KEY (FacultyId)
+);
+
+DESC Students;
+DESC Faculties;
