@@ -1,0 +1,23 @@
+
+Send Feedback
+An experiment has been conducted in which a die is rolled 10 times. Your task is to find the probability mass function for getting the number "3" for a total of "4" times.
+Note
+The probability of success for 3 is 1/6 = 0.16.
+Expected Output
+Print the pmf rounded off to 2 decimal places.
+(Please refer to the Probability Distribution in Python Notes)
+
+
+Solution
+
+from scipy.stats import binom
+
+calc_pmf = binom.pmf(k=3, n=10, p=0.16)
+
+n = 10 # number of trials
+p = 1/6 # probability of success (rolling a 3)
+k = 4 # number of successes we want
+
+pmf = binom.pmf(k, n, p)
+
+print(round(calc_pmf, 2))
