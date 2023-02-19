@@ -1,0 +1,40 @@
+
+
+Send Feedback
+Given File 'netflix_dataset.csv'
+Problem Statement:
+In the last problem we found out that there are some columns for which there are some NA values present. Now in this problem, our task is to remove the NA values and replace them with some meaningful data.
+For each column with NA values, do the following:
+For 'cast' and 'director' columns, replace NA values with 'No Data'.
+As these have a large number of NA values present.
+For the columns with 500 or fewer NA values present
+Replace 'country', 'date_added' and 'rating' with the mode of the column. 
+Now again print the number of NA values in each column. This time each column should have zero NA values present.
+Output Format:
+show_id         0
+type            0
+title           0
+director        0
+...
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+
+# load the csv file
+df = pd.read_csv('netflix_dataset.csv')
+
+# replace NA values in 'cast' and 'director' columns with 'No Data'
+df[['cast', 'director']] = df[['cast', 'director']].fillna('No Data')
+
+# replace NA values in 'country', 'date_added' and 'rating' columns with their respective mode
+for column in ['country', 'date_added', 'rating']:
+    mode = df[column].mode()[0]
+    df[column] = df[column].fillna(mode)
+
+# print the number of NA values in each column
+print(df.isna().sum())
