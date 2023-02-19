@@ -1,0 +1,41 @@
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Using the bar plot, show the top 10 countries with the most content.
+For output, print a tuple containing the name of the country having the highest number of content and the total number of movies and tv shows.
+Output Format:
+(<Top Country>, <Total content>)
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset
+df = pd.read_csv('netflix_dataset.csv')
+
+# Count the number of movies and TV shows for each country
+country_counts = df['country'].value_counts()
+
+# Select the top 10 countries with the highest number of content
+top_countries = country_counts.nlargest(10)
+
+# Plot a bar chart of the top 10 countries
+top_countries.plot(kind='bar')
+
+# Set the title and axis labels
+plt.title('Top 10 Countries with the Most Content on Netflix')
+plt.xlabel('Country')
+plt.ylabel('Number of Movies and TV Shows')
+
+# Show the plot
+plt.show()
+
+# Print the name of the top country and the total number of movies and TV shows
+print((top_countries.index[0], top_countries.values[0]))
+
