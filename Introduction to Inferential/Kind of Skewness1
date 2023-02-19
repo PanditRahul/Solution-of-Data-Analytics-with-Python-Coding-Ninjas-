@@ -1,0 +1,25 @@
+
+Send Feedback
+You are given a dataset:
+[212, 869, 220, 654, 511, 624, 420, 121, 428, 865, 799, 405, 230, 670, 870, 366, 99, 55, 489, 312, 493, 163, 221, 84, 144, 48, 375, 86, 168, 100]
+Identify the skewness of this dataset.
+Print "Right Skewed" if the data is right-skewed and print "Left-Skewed" if the data is left-skewed.
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+from scipy.stats import skew
+
+data = [212, 869, 220, 654, 511, 624, 420, 121, 428, 865, 799, 405, 230, 670, 870, 366, 99, 55, 489, 312, 493, 163, 221, 84, 144, 48, 375, 86, 168, 100]
+skewness = skew(data)
+
+if skewness > 0:
+    print("Right Skewed")
+elif skewness < 0:
+    print("Left Skewed")
+else:
+    print("No skewness")
