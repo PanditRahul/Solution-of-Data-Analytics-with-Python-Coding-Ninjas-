@@ -1,0 +1,35 @@
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Print the title of the longest movie duration and in which year it was released.
+Output Format:
+(<Movie Title>, <Release Year>)
+
+
+
+Solution
+
+
+import pandas as pd
+import csv
+import numpy as np
+import matplotlib.pyplot as plt
+file_obj = open("netflix_dataset.csv", encoding = 'utf-8')
+file_data = csv.DictReader(file_obj, skipinitialspace = True)
+movie = []
+dur = []
+date = []
+for row in file_data:
+    if row['type'] == 'Movie':
+        movie.append(row['title'])
+        dur.append(row['duration'].split(' ')[0].strip())
+        date.append(row['date_added'].split(', ')[1].strip())
+# print(dur)
+np_date = np.array(date, dtype = 'int64')
+np_movie = np.array(movie)
+np_dur = np.array(dur, dtype = 'int64')
+np_date = np_date[np.argsort(np_dur)]
+np_movie = np_movie[np.argsort(np_dur)]
+np_dur = np.sort(np_dur) 
+# print(np_date[-1])
+print((np_movie[-1], np_date[-1]))
