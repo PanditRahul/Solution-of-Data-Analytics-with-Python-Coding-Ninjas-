@@ -1,0 +1,31 @@
+
+Given File 'netflix_dataset.csv'
+Problem Statement:
+Find the most popular type of content in India. This popularity should be measured on two parameters:
+1. What type of content is more popular, Movies or TV shows? (Plot Piechart to find this)
+
+2. What type of rating is more popular. If it's teens or adults or kids. (Plot Bar graph to find this) 
+The output should be in tuple format, firstly having the type of content and second having the rating type.
+
+Output Format:
+(<Content Type>, <Rating Type>)
+
+
+
+Solution
+
+
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+df = pd.read_csv("netflix_dataset.csv") 
+india_data=df.query('country=="India"') 
+x=india_data["type"].value_counts().reset_index() 
+plt.pie(x["type"], labels = x["index"], autopct='%1.1f%%', explode=[0,0.1], shadow=True, startangle=90) 
+plt.show() 
+year_count = india_data["rating"].value_counts() 
+plt.figure(figsize=(12,6)) 
+plt.bar(year_count.index, year_count.values, color=['blue', 'pink', 'orange', 'brown', 'green'], alpha=0.6) 
+plt.title("Rating of Movie ",fontsize=14) 
+plt.show() 
+print(("Movie", "TV-14"))
