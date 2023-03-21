@@ -1,0 +1,31 @@
+Describe the Age column
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+Describe the Age column of the dataset on various parameters using describe API.
+Output Format:
+count    261642.000000
+mean         25.556898
+std           6.393561
+...
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+##############################
+#### Start code from here ####
+##############################
+age_des = olympics['Age'].describe()
+
+print(age_des)
