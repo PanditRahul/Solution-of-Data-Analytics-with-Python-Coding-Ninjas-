@@ -1,0 +1,51 @@
+Handling Missing Values Using Mean
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+You have an Age column that contains some null values. Rather than deleting them, fill these missing values by (means of the age of the players belonging to that particular game).
+Example:
+Let's suppose there is a missing value of Age where the sport is Swimming, then replace that missing value of age with the mean age of all the players who belong to Swimming. Similarly for all other sports.
+After this print the mean of the Age column.
+Output Format:
+Mean of age column rounded by 0 decimal places.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+##########################################
+##### Missing Values handled till now ####
+olympics.drop(columns=["notes", "Height", "Weight"], inplace=True)
+
+olympics = olympics[pd.notnull(olympics['region'])]
+
+olympics['Medal'].fillna('DNW', inplace = True)
+############################################
+
+##############################
+#### Start code from here ####
+##############################
+
+sport_means = olympics.groupby('Sport')['Age'].mean()
+
+# Iterate over the rows of the dataframe
+for i, row in olympics.iterrows():
+   
+    if pd.isnull(row['Age']):
+        sport = row['Sport']
+        olympics.loc[i, 'Age'] = sport_means[sport]
+
+
+age_mean = olympics['Age'].mean()
+
+
+print(round(age_mean))
