@@ -1,0 +1,58 @@
+Standard Deviation of Gold Medals
+Send Feedback
+What is the standard deviation/error of the distribution of gold medals when the UK is hosting the Olympic games and when not hosting the games? (When games are hosted in the UK, the city is London.)
+Output Format
+Standard Deviation when hosting
+Standard Deviation when not hosting
+
+
+
+Solution
+
+
+# ## Open and read data file as specified in the question
+# ## Print the required output in given format
+# import statistics
+# import numpy as np # linear algebra
+# import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+# import matplotlib.pyplot as plt
+
+# olympics = pd.read_csv('olympics_cleaned.csv')
+# hosting_uk = olympics[olympics['City'] == 'London']
+# std_hosting_uk = hosting_uk['Gold'].std()
+# not_hosting_uk = olympics[olympics['City'] != 'London']
+# std_not_hosting_uk = not_hosting_uk['Gold'].std()
+# print('Standard Deviation when hosting:', std_hosting_uk)
+# print('Standard Deviation when not hosting:', std_not_hosting_uk)
+
+import statistics 
+import numpy as np # linear algebra 
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) 
+import matplotlib.pyplot as plt 
+olympics = pd.read_csv('olympics_cleaned.csv') 
+
+#filter region and medal as given in the question
+london_medals_host = olympics.loc[(olympics["City"] == "London") & (olympics["region"] == "UK") & (olympics["Medal"] == "Gold")]
+#use .value_counts() function to get count 
+gold_count_host = london_medals_host.groupby("Year")["Medal"].value_counts() 
+london_medals_non_host = olympics.loc[(olympics["City"] != "London") & (olympics["region"] == "UK") & (olympics["Medal"] == "Gold")] 
+gold_count_non_host = london_medals_non_host.groupby("Year")["Medal"].value_counts() 
+host_stdev = statistics.stdev(gold_count_host) 
+non_host_stdev = statistics.stdev(gold_count_non_host) 
+print(host_stdev) 
+print(non_host_stdev)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
