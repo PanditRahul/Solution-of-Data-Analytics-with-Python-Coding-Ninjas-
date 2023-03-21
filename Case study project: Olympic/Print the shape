@@ -1,0 +1,26 @@
+Print the shape
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+In this case study, you are going to explore the Olympic dataset. But before you get insights from the dataset let's understand the dataset. To understand the dataset first read the dataset and print the dataset.
+Do the following as first steps to start EDA on this dataset:
+1. Import NumPy library
+2. Import Pandas library
+3. Import pyplot module from matplotlib library
+4. Read the dataset using pandas
+Output Format
+Print the shape of the dataset.
+
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('olympics.csv')
+
+print(df.shape)
