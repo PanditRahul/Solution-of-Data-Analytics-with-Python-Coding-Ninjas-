@@ -1,0 +1,38 @@
+Handling Missing Values
+Send Feedback
+Given File 'olympics.csv'
+
+Problem Statement:
+In the previous column you analyzed the columns that contain any missing values.
+You found out that Age, Height, Weight, Medal, region and notes columns contain null values.
+Now you need to handle these missing values.
+For the columns "Height, Weight and notes", you are going to drop these columns as they are not required in our further analysis.
+For the "region" column, remove all the rows where the region column is having null values.
+For output print the shape of the dataset after performing these operations.
+Note: You are going to handle the Medal and Age column in the next questions.
+Output Format:
+print the shape of the dataset after performing the missing value handling operations.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+##############################
+#### Start code from here ####
+##############################
+
+olympics = olympics.drop(["Height", "Weight", "notes"], axis=1)
+
+olympics = olympics.dropna(subset=["region"])
+
+
+print(olympics.shape)
