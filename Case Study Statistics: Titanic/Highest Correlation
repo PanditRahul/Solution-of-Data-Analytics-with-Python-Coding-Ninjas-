@@ -1,0 +1,28 @@
+Highest Correlation
+Send Feedback
+Given File 'titanic.csv'
+Problem Statement:
+From the dataset, find the variable having the highest correlation with the Survival rate.
+Note: Survival rate is denoted by the "Survived" column.
+Output Format:
+Print the column name having the highest correlation with the Survived column.
+Print the absolute value of the correlation of this column rounded off to two decimal places.
+These values should be separated by a new line.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+
+
+df = pd.read_csv('titanic.csv')
+
+corr_matrix = df.corr()
+corr_values = corr_matrix['Survived'].abs().sort_values(ascending=False)
+highest_corr_column = corr_values.index[1]  # Exclude the "Survived" column itself
+
+print(highest_corr_column)
+print('{:.2f}'.format(corr_values[1]))
