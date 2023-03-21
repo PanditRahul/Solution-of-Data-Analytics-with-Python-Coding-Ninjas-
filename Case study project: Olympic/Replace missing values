@@ -1,0 +1,40 @@
+Replace missing values
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+In previous question you handled the missing values for the columns ["Height", "Weight", "notes", "region"].
+Still there are missing values present in the "Medal" column. Now you don't need to drop the values present in this column because Medals have a NaN in about 2,31,333 rows. These can be explained since not all participating athletes would win medals.
+Let's replace these missing values with 'DNW'. DNW means Did not win.
+For the output print the unique number of values present in the Medal column.
+Output Format:
+DNW       230972
+Gold       13371
+Bronze     13291
+...
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+#####################################
+olympics.drop(columns=["notes", "Height", "Weight"], inplace=True)
+
+olympics = olympics[pd.notnull(olympics['region'])]
+#####################################
+
+##############################
+#### Start code from here ####
+##############################
+olympics["Medal"] = olympics["Medal"].fillna("DNW")
+
+
+print(olympics["Medal"].value_counts())
