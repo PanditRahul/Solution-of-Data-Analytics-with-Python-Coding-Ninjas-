@@ -1,0 +1,33 @@
+Null values
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+Print the columns that contain null values along with the count of null values present in each column.
+Output Format:
+Column_name - Number of null values.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+##############################
+#### Start code from here ####
+##############################
+
+null_counts = olympics.isnull().sum()
+
+
+null_cols = null_counts[null_counts > 0]
+
+for col, null_count in null_cols.items():
+    print(f"{col} - {null_count}")
+
