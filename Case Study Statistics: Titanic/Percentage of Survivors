@@ -1,0 +1,45 @@
+
+Send Feedback
+Given File 'titanic.csv'
+Problem Statement:
+From the dataset, find the following:
+1. Percentage of Passengers Survived.
+2. Of the total survived passengers what percentage are the male passengers.
+3. Of the total survived passengers what percentage are the female passengers.
+In the dataset,
+For Survived = 0 means the passenger has not survived.
+
+For Survived = 1 means the passenger has survived.
+
+For Sex = 1 means the passenger is male.
+
+For Sex = 0 means the passenger is Female.
+Output Format:
+Print the percentages rounded off to two decimal places in separate lines.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import pandas as pd
+
+titanic = pd.read_csv('titanic.csv')
+
+total_passengers = titanic.shape[0]
+
+survived = titanic[titanic['Survived'] == 1].shape[0]
+
+percentage_survived = (survived / total_passengers) * 100
+
+male_survived = titanic[(titanic['Survived'] == 1) & (titanic['Sex'] == 1)].shape[0]
+percentage_male_survived = (male_survived / survived) * 100
+
+female_survived = titanic[(titanic['Survived'] == 1) & (titanic['Sex'] == 0)].shape[0]
+percentage_female_survived = (female_survived / survived) * 100
+
+print('{:.2f}'.format(percentage_survived))
+print('{:.2f}'.format(percentage_male_survived))
+print('{:.2f}'.format(percentage_female_survived))
