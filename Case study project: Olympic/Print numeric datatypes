@@ -1,0 +1,29 @@
+Print numeric datatypes
+Send Feedback
+Given File 'olympics.csv'
+Problem Statement:
+Print the list of columns that have numeric datatypes.
+Numeric datatypes include ['int16', 'int32', 'int64', 'float16', 'float32', 'float64'].
+Try to solve this problem with pandas and numpy.
+Output Format:
+List of columns having numeric datatypes
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics.csv')
+
+##############################
+#### Start code from here ####
+##############################
+numeric_cols = olympics.select_dtypes(include=['int16', 'int32', 'int64', 'float16', 'float32', 'float64']).columns.tolist()
+
+print(numeric_cols)
