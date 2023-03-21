@@ -1,0 +1,23 @@
+Calculate IQR
+Send Feedback
+From the dataset, Calculate the IQR for the Age column.
+Output Format
+IQR value
+
+
+Solution
+
+
+
+import statistics
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+
+age_iqr = olympics['Age'].describe()['75%'] - olympics['Age'].describe()['25%']
+
+
+print(age_iqr)
