@@ -1,0 +1,35 @@
+
+Send Feedback
+Given File 'titanic.csv'
+Problem Statement:
+From the dataset, find out if there is a significant difference in the mean sex between the passenger who survived and the passenger who did not survive?.
+In the dataset,
+For Survived = 0 means the passenger has not survived.
+
+For Survived = 1 means the passenger has survived.
+Output Format:
+Print "Yes" if there is a significant difference otherwise print "No".
+Here for significant difference, the mean should vary by 2 points at least.
+
+
+Solution
+
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import pandas as pd
+from scipy.stats import ttest_ind
+
+df = pd.read_csv('titanic.csv')
+
+mean_sex_survived = df[df['Survived'] == 1]['Sex'].mean()
+mean_sex_not_survived = df[df['Survived'] == 0]['Sex'].mean()
+
+t_stat, p_value = ttest_ind(df[df['Survived'] == 1]['Sex'], df[df['Survived'] == 0]['Sex'])
+
+if abs(mean_sex_survived - mean_sex_not_survived) >= 2 and p_value < 0.05:
+    print("Yes")
+else:
+    print("No")
