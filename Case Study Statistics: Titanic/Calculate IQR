@@ -1,0 +1,31 @@
+
+Send Feedback
+Given File 'titanic.csv'
+Problem Statement:
+From the dataset, Calculate the IQR for the Age column.
+In the dataset, there are some null values present for the Age column. First, remove those and then calculate the IQR.
+Output Format:
+Print the IQR of Age, rounded off to two decimal places.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('titanic.csv')
+
+df = df.dropna(subset=['Age'])
+
+
+q1 = np.percentile(df['Age'], 25, interpolation= 'midpoint')
+q3 = np.percentile(df['Age'], 75, interpolation= 'midpoint')
+iqr = q3 - q1
+
+
+print('{:.2f}'.format(iqr))
+
