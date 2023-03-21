@@ -1,0 +1,29 @@
+Most number of Gold medals
+Send Feedback
+Which Sport has the most number of Gold Medals so far?
+First plot the bar chart to find out the top 5 sports that have the most number Gold of medals and then print the sport having the highest number of Gold medals.
+Output Format
+Sports having the most number of gold medals
+
+
+Solution
+
+
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+
+
+gold_medals = olympics[olympics['Medal'] == 'Gold']
+
+
+gold_medals_by_sport = gold_medals.groupby('Sport').count()['Medal']
+
+
+gold_medals_by_sport = gold_medals_by_sport.sort_values(ascending=False)
+
+
+print(gold_medals_by_sport.index[0])
