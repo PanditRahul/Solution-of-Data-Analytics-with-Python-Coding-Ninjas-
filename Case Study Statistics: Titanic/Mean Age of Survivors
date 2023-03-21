@@ -1,0 +1,27 @@
+
+Send Feedback
+Given File 'titanic.csv'
+Problem Statement:
+From the dataset, find the mean age of the people who did not survive.
+In the dataset,
+For Survived = 0 means the passenger has not survived.
+
+For Survived = 1 means the passenger has survived.
+Output Format:
+Print the mean rounded off to two decimal places.
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import pandas as pd
+
+data = pd.read_csv('titanic.csv')
+
+not_survived = data[data['Survived'] == 0]
+
+mean_age = not_survived['Age'].mean()
+
+print(round(mean_age, 2))
