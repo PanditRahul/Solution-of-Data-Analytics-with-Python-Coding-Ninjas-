@@ -1,0 +1,23 @@
+Find Skewness
+Send Feedback
+Is the overall distribution of Gold Medals tally of India, left or negatively skewed?
+Output Format
+Print Skewness
+
+
+Solution
+
+
+import scipy.stats as stats
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+olympics.rename(columns = {'region':'Country'}, inplace = True)
+india_medals = olympics.loc[(olympics["Country"] == "India") & (olympics["Medal"] == "Gold")] 
+gold_count = india_medals.groupby("Year")["Medal"].value_counts() 
+if stats.skew(gold_count, bias=False) > 0:
+    print("Right Skewed") 
+else: 
+    print("Left Skewed")
