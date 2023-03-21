@@ -1,0 +1,65 @@
+Most Female Gold Medalists
+Send Feedback
+Which sport is having the most female Gold Medalists?
+First plot the bar chart to find out the top 5 sports that have the most female Gold Medalists and then print the sport having the most female Gold Medalists.
+Output Format
+Sports having the most female Gold Medalists
+
+
+
+Solution
+
+
+
+# import numpy as np # linear algebra
+# import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+# import matplotlib.pyplot as plt
+
+# olympics = pd.read_csv('olympics_cleaned.csv')
+
+# hosting_uk = olympics[olympics['City'] == 'London']
+
+
+# std_hosting_uk = hosting_uk['Gold'].std()
+
+
+# not_hosting_uk = olympics[olympics['City'] != 'London']
+
+# std_not_hosting_uk = not_hosting_uk['Gold'].std()
+
+
+# print('Standard Deviation when hosting:', std_hosting_uk)
+# print('Standard Deviation when not hosting:', std_not_hosting_uk)
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+olympics = pd.read_csv('olympics_cleaned.csv')
+
+medals_host = olympics.loc[(olympics["Medal"] == "Gold")&(olympics["Sex"] == "F")]
+medals_host.groupby('Sport').count()['Medal'].sort_values(ascending = False).head().plot.bar(figsize=(10, 5))
+plt.show()
+print("Swimming")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
