@@ -1,0 +1,33 @@
+Correlation analysis
+Send Feedback
+Is Age positively correlated or negatively correlated with winning the medal?
+Print "Positive" if the correlation is positive and "Negative" if the correlation is negative.
+Output format
+Print "Positive" or "Negative"
+
+
+Solution
+
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import statistics
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+
+medal_map = {'DNW': 0, 'Bronze': 1, 'Silver': 2, 'Gold': 2}
+olympics['Medal_Num'] = olympics['Medal'].map(medal_map)
+
+
+age_medal_corr = olympics['Age'].corr(olympics['Medal_Num'])
+
+
+if age_medal_corr > 0:
+    print('Positive')
+else:
+    print('Negative')
