@@ -1,0 +1,25 @@
+Most Popular Event
+Send Feedback
+Which event is most popular in terms of the number of players?
+First plot the bar chart to find out the top 5 sports that have the most number of participants and then print the sport having the highest number of players participating.
+Output Format
+Sport in which most players participate.
+
+
+Solution
+
+
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+
+athletes_by_event = olympics.groupby('Event')['Name'].nunique()
+
+
+sorted_events = athletes_by_event.sort_values(ascending=False)
+
+
+print(sorted_events.index[0])
