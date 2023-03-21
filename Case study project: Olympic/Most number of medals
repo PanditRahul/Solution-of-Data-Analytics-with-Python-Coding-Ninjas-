@@ -1,0 +1,39 @@
+Most number of medals
+Send Feedback
+Which sport is having the most number of medals so far?
+First plot the bar chart to find out the top 5 sports that have the most number of medals and then print the sport having the highest medals.
+Output Format
+Sport having most medals
+
+Solution
+
+
+# import numpy as np # linear algebra
+# import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+# import matplotlib.pyplot as plt
+
+# olympics = pd.read_csv('olympics_cleaned.csv')
+
+# gold = olympics[olympics['Medal'] == 'Gold']
+
+# data = []
+# for sport in gold['Sport'].unique():
+#     data.append([sport, len(gold[gold['Sport'] == sport])])
+
+# data = pd.DataFrame(data, columns = ['Sport', 'Gold']).sort_values(by='Gold', ascending = False).head()
+# data.plot(x='Sport', y='Gold', kind='bar', figsize=(10,5))
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+df = olympics.copy()
+df = df[df['Medal'] != 'DNW']
+df = df.groupby(df['Sport']).size().reset_index(name='count').sort_values('count', ascending=False)
+sport_list = df['Sport'][0:5]
+medal_count_list = df['count'][0:5]
+
+plt.bar(sport_list, medal_count_list)
+plt.show()
+l = np.array(df['Sport'][0:5])
+print(l[0])
