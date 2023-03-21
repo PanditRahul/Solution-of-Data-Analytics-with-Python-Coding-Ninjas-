@@ -1,0 +1,44 @@
+Summer olympics hosted
+Send Feedback
+In how many cities Olympics been held so far?
+Also create a bar graph of the number of times cities hosted the Olympics.
+Output Format
+Number of cities
+
+
+
+Solution
+
+
+
+# import numpy as np # linear algebra
+# import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+# import matplotlib.pyplot as plt
+
+# olympics = pd.read_csv('olympics_cleaned.csv')
+
+# num_cities = olympics['City'].nunique()
+# print("Number of cities where Olympics have been held so far:", num_cities)
+
+
+# city_counts = olympics['City'].value_counts()
+# city_counts.plot(kind='bar')
+# plt.xlabel('City')
+# plt.ylabel('Number of times hosted')
+# plt.title('Number of times cities hosted the Olympics')
+# plt.show()
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+olympics = pd.read_csv("olympics_cleaned.csv")
+df = olympics.copy()
+count = 0
+for i in df.City.unique():
+    count += 1
+print(count)
+city = np.array(df.City)
+plt.hist(city, bins = 42, edgecolor = 'black')
+plt.xticks(rotation = 90)
+# plt.figure(figsize=(15,8))
+plt.rcParams['figure.figsize'] = [15, 8]
+plt.show()
