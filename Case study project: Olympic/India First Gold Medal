@@ -1,0 +1,19 @@
+India First Gold Medal
+Send Feedback
+In which year did India win the first Gold Medal in the Olympics?
+Output Format
+Print Year 
+
+Solution
+
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+olympics = pd.read_csv('olympics_cleaned.csv')
+ind_gold = olympics[(olympics['region'] == 'India') & (olympics['Medal'] == 'Gold')] #filter region with Indai
+# Get the year of the first gold medal
+first_gold_year = ind_gold['Year'].min()
+# Print the year
+print(first_gold_year)
+
