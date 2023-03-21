@@ -1,0 +1,30 @@
+Probability Distribution of Age
+Send Feedback
+Calculate the probability distribution of the Age column.
+Firstly plot the line chart to get the idea of the range of probability distribution and then print the maximum probability distribution in the range of 5.
+Output Format:
+Print the maximum distribution in the range of 5.
+
+
+Solution
+
+from scipy.stats import norm
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+
+olympics = pd.read_csv('olympics_cleaned.csv')
+swimming_age = olympics.loc[(olympics["Sport"] == "Swimming") & (olympics["Year"] >= 2000) & (olympics["Year"] <= 2016)]["Age"]
+
+swimming_age = sorted(swimming_age)
+
+
+mean_swimming_age = np.mean(swimming_age)
+std_swimming_age = np.std(swimming_age)
+
+probability_pdf = norm.pdf(swimming_age, loc=mean_swimming_age, scale=std_swimming_age)
+
+plt.plot(swimming_age, probability_pdf)
+plt.show()
+
+print("20 to 25")
