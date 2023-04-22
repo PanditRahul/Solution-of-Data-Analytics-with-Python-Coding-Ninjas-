@@ -1,0 +1,26 @@
+Split the dataset
+Send Feedback
+In the previous problem we loaded the iris dataset. Now use this loaded dataset to split the training and testing dataset.
+Your work is to again load this dataset from the sklearn library and split the dataset into training and testing in the ratio of 70:30 and print the shape.
+Output
+Print the shape of X_train
+Print the shape of X_test
+Print the shape of y_train
+Print the shape of y_test
+
+
+Solution
+
+
+import pandas as pd 
+from sklearn import datasets 
+from sklearn.model_selection import train_test_split 
+iris = datasets.load_iris() 
+X = iris.data
+y = iris.target 
+iris_df = pd.DataFrame(X, columns=iris.feature_names) 
+X_train, X_test, y_train, y_test = train_test_split(iris_df, y, test_size=0.3)
+print(X_train.shape) 
+print(X_test.shape) 
+print(y_train.shape)
+print(y_test.shape)
