@@ -1,0 +1,11 @@
+Amazon Job Dataset
+Send Feedback
+For this assignment, we'll be using "Amazon Job Dataset" which is collected by scraping https://amazon.jobs or can access the dataset from this link:
+Amazon Job Dataset
+Different fields of dataset and what they represent
+Title : The title of the job
+Location : Location of the job
+Posting_date : Posting date of the job
+Description: Overall description for the job
+Basic Qualifications: Minimum Qualifications for the job
+Preferred Qualifications: Preferred Qualifications for the job
