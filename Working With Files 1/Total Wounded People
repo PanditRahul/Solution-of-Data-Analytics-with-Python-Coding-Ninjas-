@@ -1,0 +1,32 @@
+Total Wounded People
+Send Feedback
+Given file "year2017.csv"
+It is an open-source database including information on terrorist attacks around the world in 2017. This dataset includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+Problem Statement :
+Find and print the total number of wounded people.
+Print the count as integer value.
+Note : There can be missing values in "Wounded" column. You should try to print the values of "Wounded" column and observe.
+Output Format :
+Count
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+
+with open('year2017.csv') as file_obj :
+    file_data = csv.reader(file_obj, skipinitialspace = True)
+    
+    file_list = list(file_data)
+
+Wounded = []
+for row in file_list[1:] :
+    val = row[10]
+    if val != '' :
+        Wounded.append(float(val))
+    
+print(int(sum(Wounded)))
