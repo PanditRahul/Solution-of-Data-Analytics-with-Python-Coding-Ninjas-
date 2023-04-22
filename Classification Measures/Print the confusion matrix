@@ -1,0 +1,35 @@
+Print the confusion matrix
+Send Feedback
+For the iris dataset provided with the sklearn toy datasets library, create a logistic regression model.
+After fitting the iris training dataset on this model, print the confusion matrix on the predicted test values.
+Note: Use randomstate = 42 when using traintest_split function.
+Output:
+Print the confusion matrix on the predicted test values
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+
+
+iris = load_iris()
+
+
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=42)
+
+logreg = LogisticRegression()
+
+
+logreg.fit(X_train, y_train)
+
+
+y_pred = logreg.predict(X_test)
+
+
+print(confusion_matrix(y_test, y_pred))
