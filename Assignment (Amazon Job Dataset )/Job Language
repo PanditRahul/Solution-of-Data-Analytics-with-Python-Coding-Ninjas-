@@ -1,0 +1,42 @@
+Job Language
+Send Feedback
+Given File 'amazonjobsdataset.csv'
+It is a dataset including information on amazon job opening around the world from June 2011 to March 2018. This dataset is collected using Selenium and BeautifulSoup by scraping all of the jobs for Amazon job site.
+Problem Statement :
+Among Java, C++ and Python, which of the language has more job openings in India for Bachelor Degree Holder?
+Print the Language(i.e Java,C++,Python) and number of job opening as integer value.
+Note : Here we will use the BASIC QUALIFICATIONS feature to find out whether bachelor degree for Job is required or not. Keywords that can be used are 'Bachelor', 'BS' and 'BA' and we will use the BASIC QUALIFICATIONS feature to find out whether Language is required for the job or not.Keywords that is used for language searching are 'Java','C++' or 'Python'.(There case should not be changed).
+Output Format :
+Language Count
+
+
+SOlution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    python = 0
+    java = 0
+    c = 0
+    for row in csv_data:
+        country = row['location'].split(',')[0]
+        if country == 'IN' :
+                bachelor = row['BASIC QUALIFICATIONS']
+                if ('Bachelor' in bachelor) or ('BA' in bachelor) or ('BS' in bachelor) : 
+                    if 'Python' in bachelor :
+                        python += 1
+                    if 'C++' in bachelor :
+                        c += 1
+                    if 'Java' in bachelor :
+                        java += 1
+                
+  
+    if python > java and python > c :
+        print('Python',python)
+    elif java > python and java > c :
+        print('Java',java)
+    else:
+        print('C++',c)
