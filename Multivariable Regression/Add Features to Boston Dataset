@@ -1,0 +1,57 @@
+Add Features to Boston Dataset
+Send Feedback
+In this problem you need to load the Boston dataset from sklearn toy datasets. After loading, you need to split the dataset into testing and training datasets. Now, fit the linear regression model on the training dataset and store the training and testing scores.
+After this add two more columns to the dataset. These columns are the squared values of the 'AGE' and the 'RM' columns respectively.
+Again split the dataset into testing and training datasets. Now, fit the linear regression model on the training dataset and store the training and testing scores.
+Compare the scores of both the models and print "Score improved" if both training and testing scores improved after squaring two columns. Otherwise, print "Score not improved".
+Output
+If both training and testing scores improved after squaring two columns print:
+
+"Score improved"
+
+Else print:
+
+"Score not improved"
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+import numpy as np
+
+
+boston = load_boston()
+
+
+X_train, X_test, Y_train, Y_test = train_test_split(boston.data, boston.target, test_size=0.3, random_state=42)
+
+
+lr = LinearRegression()
+lr.fit(X_train, Y_train)
+training_score = lr.score(X_train, Y_train)
+testing_score = lr.score(X_test, Y_test)
+
+
+X_train = np.c_[X_train, X_train[:,5]**2, X_train[:,6]**2]
+X_test = np.c_[X_test, X_test[:,5]**2, X_test[:,6]**2]
+
+
+X_train_2, X_test_2, Y_train_2, Y_test_2 = train_test_split(X_train, Y_train, test_size=0.3, random_state=42)
+
+
+lr_2 = LinearRegression()
+lr_2.fit(X_train_2, Y_train_2)
+training_score_2 = lr_2.score(X_train_2, Y_train_2)
+testing_score_2 = lr_2.score(X_test_2, Y_test_2)
+
+
+if training_score_2 > training_score and testing_score_2 > testing_score:
+    print("Score improved")
+else:
+    print("Score not improved")
+
