@@ -1,0 +1,27 @@
+Country Names
+Send Feedback
+Given file "year2017.csv"
+It is an open-source database including information on terrorist attacks around the world from 1970 through 2017. This dataset includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+Problem Statement :
+Open and read the file
+Print the country names from first 10 rows (in different lines)
+Output Format :
+Country 1
+Country 2
+Country 3
+and so on
+
+
+
+Soltuion
+
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj)
+    csv_list = list(csv_data)
+    for i in range(1,11) :
+        print(csv_list[i][3])
