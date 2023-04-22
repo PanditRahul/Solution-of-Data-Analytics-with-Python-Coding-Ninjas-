@@ -1,0 +1,27 @@
+Job Canada
+Send Feedback
+Given File 'amazonjobsdataset.csv'
+It is a dataset including information on amazon job opening around the world from June 2011 to March 2018. This dataset is collected using Selenium and BeautifulSoup by scraping all of the jobs for Amazon job site.
+Problem Statement :
+Find the number of job openings in Canada?
+Print the count as the Integer Value
+Note: Here you should analyse the country code in location feature.( you can use dictionary for analyse part ).
+Output Format :
+Count
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    job=0
+    for row in csv_data:
+         if row['location'].startswith("CA") :
+            job += 1
+    print(job)
