@@ -1,0 +1,27 @@
+Print 5 Lines (Readlines)
+Send Feedback
+Given file "Sample.txt"
+Open the file
+Read the first 5 lines from file and print them.
+Note : Use readlines() method only
+Output Format :
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+
+
+SOlution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+file_obj = open('Sample.txt')
+data = file_obj.readline()
+print(data)
+print(file_obj.readline())
+print(file_obj.readline())
+print(file_obj.readline())
+print(file_obj.readline())
+
