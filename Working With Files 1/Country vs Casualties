@@ -1,0 +1,39 @@
+Country vs Casualties
+Send Feedback
+Given file "year2017.csv"
+It is an open-source database including information on terrorist attacks around the world in 2017. This dataset includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+Problem Statement :
+Find total number of casualties in each country.
+Print number of casualties as integer value.
+Note : For any missing value of casualty column, take 0 as value
+Output Format :
+country_1 casualties_1
+country_2 casualties_2
+country_3 casualties_3
+and so on
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('year2017.csv', 'r') as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    dct = {}
+    for row in csv_data :
+        key = row['Country']
+        value = row['casualities']
+        if value != '' :
+            value = int(float(value))
+        else :
+            value = 0
+        if key in dct :
+            dct[key] += value
+        else :
+            dct[key] = value
+    for i in dct :
+        print(i,dct[i])
