@@ -1,0 +1,22 @@
+Print the classification report
+Send Feedback
+For the iris dataset provided with the sklearn toy datasets library, create a logistic regression model.
+After fitting the iris training dataset on this model, print the classification report on the predicted test values.
+Note: Use randomstate = 42 when using traintest_split function.
+Output:
+Print the classification report on the predicted test values
+
+
+Solution
+
+
+from sklearn import datasets
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+iris = datasets.load_iris()
+x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=42)
+clf = LogisticRegression()
+clf.fit(x_train, y_train)
+y_test_pred = clf.predict(x_test)
+print(classification_report(y_test, y_test_pred))
