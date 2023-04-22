@@ -1,0 +1,42 @@
+Find the testing and training score
+Send Feedback
+For the given dataset "FuelEconomy.csv"
+Create a Linear Regressor and fit the dataset in this and then print the training and testing score for this regressor.
+Note: Inside the function "traintestsplit" use the "random_state = 42".
+To know more about randomstate please read the document given regarding randomstate.
+Output
+Print the testing and training scores in separate lines rounded off to 3 decimal places.
+
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+fuelEconomy = np.loadtxt('FuelEconomy.csv', delimiter=',')
+
+X = fuelEconomy[:, 0].reshape(-1, 1)
+y = fuelEconomy[:, 1]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+test_score = regressor.score(X_test, y_test)
+train_score = regressor.score(X_train, y_train)
+
+print(round(test_score, 3))
+print(round(train_score, 3))
+
+
+#print(round(regressor.score(X_train, y_train), 3))
+#print(round(regressor.score(X_test, y_test), 3))
+
+
