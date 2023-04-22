@@ -1,0 +1,65 @@
+Coding Linear Regression from Scratch
+Send Feedback
+For the given dataset "FuelEconomy.csv"
+You need to write four functions namely:
+1. fit(x_train, y_train)
+2. predict(x, m, c)
+3. score(y_truth, y_pred)
+4. cost(x, y, m, c)
+The output is going to print the training and testing score and the cost of the regressor trained using the fit function.
+
+
+
+Solution
+
+
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+data = np.loadtxt('FuelEconomy.csv', delimiter=',')
+X = data[:, 0]
+y = data[:, 1]
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size = 0.3, random_state=42)
+
+###########################
+##### Start from here #####
+###########################
+
+def fit(x_train, y_train):
+    num = (x_train*y_train).mean() - x_train.mean()*y_train.mean() 
+    den = (x_train**2).mean() - x_train.mean()**2 
+    m = num/den 
+    c = y_train.mean() - m*x_train.mean() 
+    return m, c
+    pass
+
+
+def predict(x, m, c):
+    return m*x + c
+    pass
+
+def score(y_truth, y_pred):
+    u = ((y_truth - y_pred)**2).sum() 
+    v = ((y_truth - y_truth.mean())**2).sum() 
+    return 1 - u/v
+    pass
+
+
+def cost(x, y, m, c):
+    return ((y-m*x - c)**2).mean()
+    pass
+
+
+###########################
+###########################
+
+m, c = fit(X_train, Y_train)
+
+y_test_pred = predict(X_test, m, c)
+y_train_pred = predict(X_train, m, c)
+
+print(round(score(Y_test, y_test_pred), 2))
+print(round(score(Y_train, y_train_pred), 2))
+print(round(cost(X_train,Y_train, m, c ), 2))
