@@ -1,0 +1,30 @@
+Breast Cancer Dataset
+Send Feedback
+For the sklearn toy dataset "Breast Cancer", you need to perform Logistic Regression on this dataset.
+Output
+Training score rounded to 2 decimal places
+
+Testing score rounded to 2 decimal places
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+from sklearn import datasets
+from sklearn import model_selection
+from sklearn.linear_model import LogisticRegression
+
+cancer_ds = datasets.load_breast_cancer()
+X = cancer_ds.data
+Y = cancer_ds.target
+
+X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X,Y,test_size=0.3, random_state=42)
+
+clf = LogisticRegression(C=2, solver = 'liblinear')
+clf.fit(X_train, Y_train)
+
+print(round(clf.score(X_train, Y_train), 2))
+print(round(clf.score(X_test, Y_test), 2))
+
