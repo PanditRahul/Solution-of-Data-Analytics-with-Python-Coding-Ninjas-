@@ -1,0 +1,45 @@
+Job Java
+Send Feedback
+Given File 'amazonjobsdataset.csv'
+It is a dataset including information on amazon job opening around the world from June 2011 to March 2018. This dataset is collected using Selenium and BeautifulSoup by scraping all of the jobs for Amazon job site.
+Problem Statement :
+Find the country does Amazon need the most number of Java Developer?
+Print the Country(Country Shortcut as given in Dataset) and number of job opening as integer value
+Note :Here we will use the BASIC QUALIFICATIONS feature to find out whether Java is required for the job or not.Keyword is used is 'Java'.(Here case should not be changed).
+
+
+Output Format :
+
+
+Country NumberofJobs
+For example : US 40
+
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('amazon_jobs_dataset.csv', 'r', encoding="utf8") as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    d={}
+    for row in csv_data:
+        qulification = row['BASIC QUALIFICATIONS']
+        if 'Java' in qulification :
+            country = row['location'].split(',')[0]
+            if country in d :
+                d[country] += 1
+            else:
+                d[country] = 1
+                
+    max1 = -1
+    country_name = ''
+    for country in d:
+        if d[country] > max1:
+            max1 = d[country]
+            country_name = country
+    print(country_name,max1)
