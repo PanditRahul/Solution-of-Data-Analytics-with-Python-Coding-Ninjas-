@@ -1,0 +1,37 @@
+Month vs Killed
+Send Feedback
+Given file "year2017.csv"
+It is an open-source database including information on terrorist attacks around the world in 2017. This dataset includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+Problem Statement :
+Find the total number people killed in each month.
+Print the month and count of killed people as integer value.
+Output Format :
+Month_1 Count_1
+Month_2 Count_2
+Month_3 Count_3
+and so on
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('year2017.csv', 'r') as file_obj :
+    csv_data = csv.DictReader(file_obj, skipinitialspace = True)
+    
+    dct = {}
+    for row in csv_data :
+        key = row['Month']
+        value = row['Killed']
+        if value != '' :
+            value = int(float(value))
+        else :
+            value = 0
+        if key in dct :
+            dct[key] += value
+        else :
+            dct[key] = value
+    for i in dct :
+        print(i,dct[i])
