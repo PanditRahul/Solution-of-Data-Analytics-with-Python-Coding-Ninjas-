@@ -1,0 +1,32 @@
+Diabetes Dataset
+Send Feedback
+scikit-learn comes with a few small standard datasets that do not require downloading any file from some external website.
+These datasets are useful to quickly illustrate the behaviour of the various algorithms implemented in scikit-learn. They are however often too small to be representative of real-world machine learning tasks.
+One such dataset is the "Diabetes dataset".
+Your work is to load this dataset from the sklearn library and split the dataset into training and testing in the ratio of 70:30 and print the shape.
+Output
+Print the shape of X_train
+Print the shape of X_test
+Print the shape of y_train
+Print the shape of y_test
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import train_test_split
+
+
+diabetes = load_diabetes()
+
+
+X_train, X_test, y_train, y_test = train_test_split(diabetes.data, diabetes.target, test_size=0.3)
+
+
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape)
