@@ -1,0 +1,31 @@
+Implementation of Cross Validation using Sklearn
+Send Feedback
+For the sklearn toy dataset "Iris", you need to calculate the Cross-validation score using the sklearn library.
+Note: While using KFold keep the parameters as:
+n_splits=3,
+shuffle=True, 
+random_state=42
+Output
+Print the cross_val_score for 3 splits.
+
+
+SOlution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+from sklearn import datasets
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+
+iris = datasets.load_iris()
+
+clf = LinearRegression()
+print(cross_val_score(clf, iris.data, iris.target, cv=KFold(3, shuffle=True, random_state=42)))
+
+
+
