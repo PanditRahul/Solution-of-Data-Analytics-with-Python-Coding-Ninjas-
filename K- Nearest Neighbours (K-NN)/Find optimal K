@@ -1,0 +1,36 @@
+Find optimal K
+Send Feedback
+For the sklearn toy dataset "Iris", you need to calculate the optimal value of K for the KNN classifier using the sklearn library.
+Note: While using KFold keep the parameters as:
+n_splits=3,
+shuffle=True, 
+random_state=42
+Output
+Print the optimal value of k.
+
+
+
+Solution
+
+## Open and read data file as specified in the question
+
+from sklearn import datasets## Print the required output in given format
+
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.neighbors import KNeighborsClassifier
+
+iris = datasets.load_iris()
+k_axis = []
+k_scores= []
+
+for k in range(1,50,2):
+    k_axis.append(k)
+    clf=KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(clf, iris.data, iris.target, cv=KFold(3,shuffle=True,random_state=42),scoring='accuracy')
+    k_scores.append(scores.mean())
+
+
+optimal_k = k_axis[k_scores.index(max(k_scores))]
+
+print(optimal_k)
