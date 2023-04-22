@@ -1,0 +1,15 @@
+Print 100 Bytes
+Send Feedback
+Given file "Sample.txt"
+Open the file
+Read the first 100 bytes of file and print them.
+
+
+
+Solution
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+file_obj = open('Sample.txt')
+data = file_obj.read(100)
+print(data)
