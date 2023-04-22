@@ -1,0 +1,36 @@
+Implementation of KNN using Sklearn
+Send Feedback
+For the sklearn toy dataset "Breast Cancer", you need to perform KNN on this dataset using Sklearn.
+Note: Use "random_state=42"
+Output
+Testing score rounded to 2 decimal places
+
+
+\
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+# Load the dataset
+data = load_breast_cancer()
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Create a KNN classifier with k=5
+knn = KNeighborsClassifier(n_neighbors=5)
+
+# Fit the classifier to the training data
+knn.fit(X_train, y_train)
+
+# Calculate the testing score
+score = knn.score(X_test, y_test)
+
+# Print the testing score rounded to 2 decimal places
+print(round(score, 2))
