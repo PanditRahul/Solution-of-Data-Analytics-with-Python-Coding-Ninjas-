@@ -1,0 +1,27 @@
+Read the sklearn dataset
+Send Feedback
+scikit-learn comes with a few small standard datasets that do not require downloading any file from some external website.
+These datasets are useful to quickly illustrate the behaviour of the various algorithms implemented in scikit-learn. They are however often too small to be representative of real-world machine learning tasks.
+One such dataset is the "Iris dataset".
+Your work is to load this dataset from the sklearn library and print the first five rows using the head method of the pandas' library.
+Output
+Print the first 5 rows of iris dataset(after loading from sklearn toy dataset).
+
+
+
+Solution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+
+from sklearn.datasets import load_iris
+import pandas as pd
+
+iris = load_iris()
+
+
+iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+
+
+print(iris_df.head())
