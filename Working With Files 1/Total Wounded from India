@@ -1,0 +1,28 @@
+Total Wounded from India
+Send Feedback
+Given file "year2017.csv"
+It is an open-source database including information on terrorist attacks around the world in 2017. This dataset includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period
+Problem Statement :
+Find and print the total number of wounded people who are from country "India".
+Print the count as integer value.
+Note : There can be missing values in "Wounded" column. You should try to print the values of "Wounded" column and observe.
+Output Format :
+Count
+
+
+
+SOlution
+
+
+## Open and read data file as specified in the question
+## Print the required output in given format
+import csv
+with open('year2017.csv','r') as file_obj :
+    csv_data = csv.reader(file_obj, skipinitialspace = True)
+    csv_list = list(csv_data)
+    wounded = []
+    for row in csv_list[1:] :
+        if row[3] == 'India' and row[10] != '' :
+            wounded.append(float(row[10]))
+    print(int(sum(wounded)))
+            
